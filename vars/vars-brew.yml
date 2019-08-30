@@ -1,0 +1,45 @@
+brew:
+  bin_path: /usr/local/bin
+  install_cask_path: 'appdir=/Applications'
+
+  self_update: yes
+  upgrade_packages: no
+
+  # Packages
+  install_packages: yes
+  installed_packages: [
+    'yarn',
+    'docker',
+    'docker-compose',
+    'docker-machine',
+  ]
+  uninstall_packages: no
+  uninstalled_packages: []
+
+  # Casks
+  install_cask_apps: yes
+  installed_cask_apps: [
+    'docker',
+    'atom',
+    'sublime-text',
+    'visual-studio-code',
+    'skype',
+    'telegram',
+    'slack',
+    'trello',
+    'firefox',
+    'google-chrome',
+    'yandex',
+    'opera',
+    'vlc',
+    'teamviewer',
+    'figma',
+    'zeplin',
+    'skitch',
+    'colorsnapper',
+    'imageoptim',
+    'evernote',
+    'vox',
+  ]
+  uninstall_cask_apps: no
+  uninstalled_cask_apps: []

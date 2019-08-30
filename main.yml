@@ -1,0 +1,35 @@
+---
+- name: MacOS Setup Ansible
+  hosts: local
+  gather_facts: yes
+  connection: local
+  
+  vars_files:
+    - vars/vars-main.yml
+    - vars/vars-brew.yml
+    - vars/vars-nvm.yml
+    - vars/vars-git.yml
+  
+  tasks:
+    - name: Mac Preferences
+      include: tasks/mac-pref.yml
+      when: tasks_config.mac_preferences
+    
+    - name: Install Homebrew
+      include: tasks/brew-install.yml
+      when: tasks_config.install_brew
+      
+    - name: Install Node JS whith nvm
+      include: tasks/nvm-nodejs.yml
+      when: tasks_config.install_nvm_nodejs
+
+    - include: tasks/git-install.yml
+      when: tasks_config.install_git
+    
+    - name: Install Create React App
+      shell: npm i -g create-react-app
+      become: yes
+      when: tasks_config.install_create_react_app
+    
+    - include: tasks/brew-packages.yml
+      when: tasks_config.brew_packages

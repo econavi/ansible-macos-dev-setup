@@ -1,0 +1,30 @@
+- name: Updating Homebrew
+  homebrew:
+    update_homebrew: yes
+  when: brew.self_update
+
+- name: Installing Homebrew Packages
+  homebrew:
+    name: "{{ item }}"
+    state: "present"
+    upgrade_all: "{{ brew.upgrade_packages }}"
+  loop: '{{ brew.installed_packages }}'
+  when: brew.install_packages
+
+- name: Uninstalling Homebrew Packages
+  homebrew: "name={{ item }} state=absent"
+  loop: '{{ brew.uninstalled_packages }}'
+  when: brew.uninstall_packages
+
+- name: Installing Homebrew Cask Apps
+  homebrew_cask:
+    name: "{{ item }}"
+    state: "present"
+    install_options: '{{ brew.install_cask_path }}'
+  loop: '{{ brew.installed_cask_apps }}'
+  when: brew.install_cask_apps
+
+- name: Uninstalling Homebrew Cask Apps
+  homebrew_cask: "name={{ item }} state=absent"
+  loop: "{{ brew.uninstalled_cask_apps }}"
+  when: brew.uninstall_cask_apps

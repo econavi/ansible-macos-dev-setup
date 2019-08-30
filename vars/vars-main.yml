@@ -1,0 +1,10 @@
+root_user_name: '{{ ansible_user_id }}'
+home_dir: "{{ lookup('env', 'HOME') }}"
+
+tasks_config:
+  mac_preferences: yes
+  install_brew: yes
+  install_nvm_nodejs: yes
+  install_git: yes
+  install_create_react_app: yes
+  brew_packages: yes

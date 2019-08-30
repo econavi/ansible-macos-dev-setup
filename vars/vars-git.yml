@@ -1,0 +1,3 @@
+git_user_name: Vladimir Kochenov
+git_user_email: kochenov.vl@gmail.com
+gitignore_global: "{{home_dir}}/.gitignore_global"
