@@ -1,5 +1,5 @@
 - name: Install Git
-  homebrew_cask: name=git state=present
+  homebrew: name=git state=present
 
 - name: Add Global Git Congif Settings
   template: 
